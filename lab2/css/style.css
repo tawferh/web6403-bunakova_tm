@@ -1,0 +1,618 @@
+/* палитра сайта */
+:root {
+    --cream: #f6efe6;
+    /* фон страницы */
+    --paper: #fffaf3;
+    /* фон карточек */
+    --milk: #e9dccb;
+    /* светлые плашки */
+    --espresso: #3b2a20;
+    /* основной текст */
+    --coffee: #6b4a36;
+    /* второстепенный текст */
+    --terracotta: #a36f58;
+    /* акцентный цвет */
+    --sage: #7d8f6a;
+    /* зелёный для «новинок» */
+    --radius: 18px;
+}
+
+/* Селекторы по тегу */
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    background-color: var(--cream);
+    color: var(--espresso);
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+    /* подвал прижат к низу даже на короткой странице */
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+main {
+    flex: 1;
+    width: 100%;
+}
+
+/* Групповой селектор: общий шрифт для всех заголовков */
+h1,
+h2,
+h3 {
+    font-family: "Trebuchet MS", Arial, sans-serif;
+    line-height: 1.2;
+    margin: 0 0 0.5em;
+}
+
+a {
+    color: var(--terracotta);
+    text-decoration-thickness: 2px;
+    text-underline-offset: 3px;
+}
+
+/* Псевдокласс: ссылка при наведении */
+a:hover {
+    color: var(--espresso);
+}
+
+img {
+    max-width: 100%;
+}
+
+/* Общая обёртка */
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 24px;
+}
+
+/* Шапка (селектор по id) */
+#site-header {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    background-color: var(--paper);
+    border-bottom: 3px solid var(--espresso);
+}
+
+.header-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 12px;
+    padding-bottom: 12px;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+}
+
+.logo-text {
+    font-family: "Trebuchet MS", Arial, sans-serif;
+    font-size: 28px;
+    font-weight: bold;
+    color: var(--espresso);
+    letter-spacing: 1px;
+}
+
+.main-nav {
+    display: flex;
+    gap: 6px;
+}
+
+/* Селектор потомка: ссылки внутри меню навигации */
+.main-nav a {
+    padding: 8px 16px;
+    border-radius: 999px;
+    color: var(--espresso);
+    text-decoration: none;
+    font-weight: 600;
+    transition: background-color 0.2s;
+}
+
+.main-nav a:hover {
+    background-color: var(--milk);
+}
+
+/* Два класса сразу: активный пункт меню */
+.main-nav a.active {
+    background-color: var(--espresso);
+    color: var(--paper);
+}
+
+/* Главная: первый экран */
+.hero {
+    background-color: var(--paper);
+    border-bottom: 3px solid var(--espresso);
+}
+
+.hero-inner {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    padding-top: 56px;
+    padding-bottom: 56px;
+}
+
+.hero-text {
+    flex: 1;
+}
+
+.hero-text h1 {
+    font-size: 44px;
+}
+
+.hero-image {
+    flex: 1;
+    width: 100%;
+    max-width: 420px;
+    aspect-ratio: 4 / 5;
+    object-fit: cover;
+    border: 3px solid var(--espresso);
+    border-radius: var(--radius);
+    box-shadow: 8px 8px 0 var(--milk);
+}
+
+.eyebrow {
+    display: inline-block;
+    margin: 0 0 16px;
+    padding: 4px 14px;
+    border: 2px solid var(--espresso);
+    border-radius: 999px;
+    font-size: 14px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.accent {
+    color: var(--terracotta);
+}
+
+.button {
+    display: inline-block;
+    margin-top: 8px;
+    padding: 14px 28px;
+    background-color: var(--terracotta);
+    color: var(--paper);
+    border: 3px solid var(--espresso);
+    border-radius: 999px;
+    box-shadow: 4px 4px 0 var(--espresso);
+    font-weight: 700;
+    text-decoration: none;
+    transition: transform 0.15s, box-shadow 0.15s;
+}
+
+.button:hover {
+    color: var(--paper);
+    transform: translate(2px, 2px);
+    box-shadow: 2px 2px 0 var(--espresso);
+}
+
+/* Карточки «Почему к нам» */
+.section-title {
+    margin-top: 56px;
+    font-size: 32px;
+}
+
+.cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+}
+
+.card {
+    padding: 28px;
+    background-color: var(--paper);
+    border: 3px solid var(--espresso);
+    border-radius: var(--radius);
+    box-shadow: 6px 6px 0 var(--milk);
+    transition: transform 0.2s;
+}
+
+.card:hover {
+    transform: translateY(-4px) rotate(-0.5deg);
+}
+
+.card-icon {
+    width: 56px;
+    height: 56px;
+    margin-bottom: 12px;
+}
+
+.card p {
+    margin: 0;
+    color: var(--coffee);
+}
+
+/* Блок «Хит сезона» */
+.highlight {
+    display: flex;
+    margin-top: 56px;
+    margin-bottom: 56px;
+}
+
+.highlight-label {
+    writing-mode: vertical-rl;
+    transform: rotate(180deg);
+    padding: 20px 12px;
+    background-color: var(--terracotta);
+    color: var(--paper);
+    border: 3px solid var(--espresso);
+    border-radius: 0 var(--radius) var(--radius) 0;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    text-align: center;
+}
+
+.highlight-body {
+    flex: 1;
+    padding: 32px;
+    background-color: var(--milk);
+    border: 3px solid var(--espresso);
+    border-left: none;
+    border-radius: 0 var(--radius) var(--radius) 0;
+}
+
+.price-tag {
+    font-weight: 600;
+}
+
+.price {
+    padding: 2px 10px;
+    background-color: var(--espresso);
+    color: var(--paper);
+    border-radius: 6px;
+}
+
+.link-arrow {
+    font-weight: 700;
+}
+
+/* Внутренние страницы */
+.page {
+    padding-top: 40px;
+    padding-bottom: 56px;
+}
+
+.page-title {
+    font-size: 40px;
+    color: var(--espresso);
+}
+
+.lead {
+    font-size: 20px;
+    max-width: 720px;
+}
+
+.note,
+.muted {
+    color: var(--coffee);
+}
+
+.muted {
+    font-size: 15px;
+}
+
+/* Таблицы  */
+.menu-section {
+    margin-top: 32px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: var(--paper);
+}
+
+.menu-table {
+    border: 3px solid var(--espresso);
+}
+
+caption {
+    padding: 14px 0;
+    font-family: "Trebuchet MS", Arial, sans-serif;
+    font-size: 26px;
+    font-weight: bold;
+    text-align: left;
+}
+
+th {
+    padding: 12px 18px;
+    background-color: var(--espresso);
+    color: var(--paper);
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+td {
+    padding: 12px 18px;
+    border-bottom: 1px dashed var(--milk);
+}
+
+/* Псевдокласс: «зебра» — каждая чётная строка подсвечена */
+tbody tr:nth-child(even) {
+    background-color: #fbf4ea;
+}
+
+tbody tr:hover {
+    background-color: var(--milk);
+}
+
+/* Псевдокласс: у последней строки нет нижней линии */
+tbody tr:last-child td {
+    border-bottom: none;
+}
+
+/* Три вида выравнивания в таблице */
+.align-left {
+    text-align: left;
+}
+
+.align-center {
+    text-align: center;
+}
+
+.align-right {
+    text-align: right;
+    font-variant-numeric: tabular-nums;
+    font-weight: 700;
+}
+
+/* Строчные «бейджи» внутри ячеек */
+.badge {
+    display: inline-block;
+    margin-left: 8px;
+    padding: 1px 10px;
+    background-color: var(--terracotta);
+    color: var(--paper);
+    border-radius: 999px;
+    font-size: 12px;
+    font-weight: 700;
+    vertical-align: middle;
+}
+
+.badge-new {
+    background-color: var(--sage);
+}
+
+/* О нас */
+.about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    align-items: center;
+}
+
+.about-figure {
+    margin: 0;
+}
+
+.about-figure img {
+    display: block;
+    border: 3px solid var(--espresso);
+    border-radius: var(--radius);
+}
+
+figcaption {
+    margin-top: 8px;
+    color: var(--coffee);
+    font-size: 14px;
+    font-style: italic;
+    text-align: center;
+}
+
+.timeline {
+    list-style: none;
+    margin: 0;
+    padding: 0 0 0 24px;
+    border-left: 3px solid var(--terracotta);
+}
+
+.timeline li {
+    position: relative;
+    margin-bottom: 18px;
+}
+
+/* Псевдоэлемент: кружок на линии времени */
+.timeline li::before {
+    content: "";
+    position: absolute;
+    left: -34px;
+    top: 6px;
+    width: 14px;
+    height: 14px;
+    background-color: var(--paper);
+    border: 3px solid var(--terracotta);
+    border-radius: 50%;
+}
+
+.year {
+    margin-right: 10px;
+    font-family: "Trebuchet MS", Arial, sans-serif;
+    font-size: 20px;
+    font-weight: bold;
+    color: var(--terracotta);
+}
+
+.principles {
+    padding-left: 22px;
+}
+
+.principles li {
+    margin-bottom: 8px;
+}
+
+.principles li::marker {
+    color: var(--terracotta);
+}
+
+.quote {
+    margin: 48px 0 0;
+    padding: 28px 32px;
+    background-color: var(--espresso);
+    color: var(--paper);
+    border-radius: var(--radius);
+    font-family: "Trebuchet MS", Arial, sans-serif;
+    font-size: 26px;
+    font-style: italic;
+}
+
+.quote-author {
+    display: block;
+    margin-top: 10px;
+    color: var(--milk);
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 15px;
+    font-style: normal;
+}
+
+/* Контакты */
+.contacts-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    align-items: start;
+}
+
+.contact-card {
+    padding: 28px;
+    background-color: var(--paper);
+    border: 3px solid var(--espresso);
+    border-radius: var(--radius);
+    box-shadow: 6px 6px 0 var(--milk);
+}
+
+.hours-table {
+    margin-bottom: 12px;
+    border: 2px solid var(--espresso);
+}
+
+/* Подвал */
+.site-footer {
+    background-color: var(--espresso);
+    color: var(--milk);
+    font-size: 15px;
+}
+
+.footer-inner {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 8px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.site-footer p {
+    margin: 0;
+}
+
+.site-footer a {
+    color: var(--milk);
+}
+
+.site-footer a:hover {
+    color: var(--terracotta);
+}
+
+/* Фотокарточки */
+.photo-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 28px;
+    margin-top: 24px;
+}
+
+.photo-card {
+    margin: 0;
+    padding: 12px 12px 16px;
+    background-color: var(--paper);
+    border: 3px solid var(--espresso);
+    border-radius: 6px;
+    box-shadow: 6px 6px 0 var(--milk);
+    transform: rotate(-2deg);
+    transition: transform 0.25s;
+}
+
+.photo-card:nth-child(even) {
+    transform: rotate(2deg);
+}
+
+.photo-card:hover {
+    transform: rotate(0deg) scale(1.05);
+}
+
+.photo-card img {
+    display: block;
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    border-radius: 3px;
+}
+
+.photo-card figcaption {
+    margin-top: 10px;
+    color: var(--espresso);
+}
+
+/* Иконки рядом с текстом */
+.inline-icon {
+    width: 28px;
+    height: 28px;
+    vertical-align: middle;
+    margin-right: 6px;
+}
+
+/* Адаптивность для телефонов */
+@media (max-width: 760px) {
+    .header-inner {
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    .main-nav a {
+        padding: 6px 10px;
+        font-size: 15px;
+    }
+
+    .hero-inner {
+        flex-direction: column-reverse;
+        padding-top: 32px;
+        padding-bottom: 32px;
+    }
+
+    .hero-text h1 {
+        font-size: 32px;
+    }
+
+    .hero-image {
+        max-width: 100%;
+        aspect-ratio: 4 / 3;
+    }
+
+    .cards,
+    .about-grid,
+    .contacts-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .page-title {
+        font-size: 38px;
+    }
+
+    th,
+    td {
+        padding: 10px;
+    }
+}
