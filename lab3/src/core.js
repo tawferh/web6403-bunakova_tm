@@ -3,7 +3,7 @@
  * @param {*} n
  */
 function isInteger(n) {
-    return (n | 0) === n;
+    return typeof n === 'number' && (n | 0) === n;
 }
 
 /**
@@ -22,8 +22,12 @@ function even() {
  * @param {*} n
  */
 function sumTo(n) {
+    if (!Number.isInteger(n)) {
+        return NaN;
+    }
+
     let sum = 0;
-    for (let i = 0; i <= n; i++) {
+    for (let i = 1; i <= n; i++) {
         sum += i;
     }
     return sum;
@@ -34,6 +38,10 @@ function sumTo(n) {
  * @param {*} n
  */
 function recSumTo(n) {
+    if (!Number.isInteger(n)) {
+        return NaN;
+    }
+
     if (n <= 0) {
         return 0;
     }
@@ -46,6 +54,10 @@ function recSumTo(n) {
  * @param {*} n
  */
 function factorial(n) {
+    if (!Number.isInteger(n) || n < 0) {
+        return NaN;
+    }
+
     let res = 1;
     for (let i = 2; i <= n; i++) {
         res *= i;
@@ -58,7 +70,7 @@ function factorial(n) {
  * @param {*} n
  */
 function isBinary(n) {
-    return n > 0 && (n & (n - 1)) === 0;
+    return Number.isInteger(n) && n > 0 && (n & (n - 1)) === 0;
 }
 
 /**
@@ -66,6 +78,14 @@ function isBinary(n) {
  * @param {*} n
  */
 function fibonacci(n) {
+    if (!Number.isInteger(n) || n < 0) {
+        return NaN;
+    }
+
+    if (n === 0) {
+        return 0;
+    }
+
     let prev = 0;
     let current = 1;
     for (let i = 1; i < n; i++) {
@@ -116,6 +136,10 @@ function getOperationFn(initialValue, operatorFn) {
  * console.log(generator()); // 9
  */
 function sequence(start = 0, step = 1) {
+    if (!Number.isFinite(start) || !Number.isFinite(step)) {
+        throw new TypeError('start и step должны быть числами');
+    }
+
     let current = start;
 
     return function () {
