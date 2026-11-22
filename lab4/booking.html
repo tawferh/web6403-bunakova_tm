@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Кофейня «Пенка» — регистрация на дегустацию</title>
+	<link rel="stylesheet" href="css/style.css">
+	<script src="js/main.js" defer></script>
+</head>
+
+<body>
+	<header class="header">
+		<div class="container header__inner">
+			<a href="index.html" class="logo">
+				<img src="images/logo.svg" alt="Логотип кофейни «Пенка»" width="44" height="44">
+				<span class="logo__text">Пенка</span>
+			</a>
+			<nav class="nav">
+				<a href="index.html" class="nav__link">Главная</a>
+				<a href="menu.html" class="nav__link">Меню</a>
+				<a href="about.html" class="nav__link">О нас</a>
+				<a href="contacts.html" class="nav__link">Контакты</a>
+				<a href="booking.html" class="nav__link nav__link_active">Запись</a>
+			</nav>
+		</div>
+	</header>
+
+	<main class="container">
+		<h1>Регистрация на дегустацию</h1>
+		<p>Каждую субботу в&nbsp;16:00 завариваем четыре лота зерна. Оставьте заявку, чтобы мы&nbsp;заняли вам место.
+		</p>
+
+		<form class="form" action="https://httpbin.org/post" method="post">
+			<!-- Тип поля 1: почта -->
+			<div class="form__field">
+				<label class="form__label" for="guest-email">Электронная почта</label>
+				<input class="form__input" type="email" id="guest-email" name="email" required>
+			</div>
+
+			<!-- Тип поля 2: пароль -->
+			<div class="form__field">
+				<label class="form__label" for="guest-password">Пароль</label>
+				<input class="form__input" type="password" id="guest-password" name="password" required minlength="6">
+			</div>
+
+			<!-- Тип поля 3: галочка -->
+			<div class="form__checkbox-field">
+				<input type="checkbox" id="guest-agree" name="agree" required>
+				<label for="guest-agree">Согласен(на) на обработку персональных данных</label>
+			</div>
+
+			<button class="button" type="submit">Зарегистрироваться</button>
+
+			<p class="form__status"></p>
+		</form>
+	</main>
+
+	<footer class="footer">
+		<div class="container footer__inner">
+			<p>© 2026 Кофейня «Пенка»</p>
+			<p><a class="footer__link"
+					href="https://yandex.ru/maps/51/samara/geo/leningradskaya_ulitsa/8027790/?ll=50.095725%2C53.186407&z=15">Самара,
+					ул. Ленинградская, 42</a></p>
+		</div>
+	</footer>
+</body>
+
+</html>
